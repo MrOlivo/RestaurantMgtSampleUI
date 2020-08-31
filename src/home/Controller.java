@@ -56,21 +56,22 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Node[] nodes = new Node[10];
+
         for (int i = 0; i < nodes.length; i++) {
             try {
-
                 final int j = i;
                 nodes[i] = FXMLLoader.load(getClass().getResource("Item.fxml"));
 
                 //give the items some effect
-
                 nodes[i].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-background-color : #0A0E3F");
+                    nodes[j].setStyle("-fx-background-color : #313335");
                 });
                 nodes[i].setOnMouseExited(event -> {
-                    nodes[j].setStyle("-fx-background-color : #02030A");
+                    nodes[j].setStyle("-fx-background-color : #2B2B2B");
                 });
+
                 pnItems.getChildren().add(nodes[i]);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -89,7 +90,7 @@ public class Controller implements Initializable {
             pnlMenus.toFront();
         }
         if (actionEvent.getSource() == btnOverview) {
-            pnlOverview.setStyle("-fx-background-color : #02030A");
+            pnlOverview.setStyle("-fx-background-color : #2B2B2B");
             pnlOverview.toFront();
         }
         if(actionEvent.getSource()==btnOrders)
